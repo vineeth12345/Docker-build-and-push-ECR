@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   call-reusable-workflow:
-    uses: user-or-org-name/repo-b/.github/workflows/reusable-build-and-push.yml@main
+    uses: vineeth12345/workflows/.github/workflows/build-and-push-ECR.yml@main
     with:
       caller_repo: ${{ github.repository }}
-      aws_region: us-east-1
-      ecr_repository: my-ecr-repo
+      # aws_region: us-east-1
+      # ecr_repository: my-ecr-repo
