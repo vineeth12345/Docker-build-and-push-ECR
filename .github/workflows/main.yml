@@ -8,4 +8,4 @@ jobs:
     with:
       caller_repo: ${{ github.repository }}
       # aws_region: us-east-1
-      # ecr_repository: my-ecr-repo
+      ecr_repository: ephemeral-runner

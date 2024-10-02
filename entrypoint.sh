@@ -5,7 +5,7 @@ RUNNER_NAME="${RUNNER_NAME:-$(hostname)}"
 RUNNER_WORKDIR="${RUNNER_WORKDIR:-/_work}"
 RUNNER_LABELS="${RUNNER_LABELS:-self-hosted,code-scanning}"
 GITHUB_URL="https://github.com/vineeth12345/grandnode"
-GITHUB_PAT="${{ secrets.GITHUB_PAT }}"
+GITHUB_PAT="${{ secrets.GIT_PAT }}"
 
 # Function to get runner token
 get_runner_token() {
