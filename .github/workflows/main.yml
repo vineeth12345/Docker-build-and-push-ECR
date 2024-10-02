@@ -2,6 +2,10 @@ name: Main Workflow
 
 on: [push, workflow_dispatch]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   call-reusable-workflow:
     uses: vineeth12345/workflows/.github/workflows/build-and-push-ECR.yml@main
