@@ -7,5 +7,5 @@ jobs:
     uses: vineeth12345/workflows/.github/workflows/build-and-push-ECR.yml@main
     with:
       caller_repo: ${{ github.repository }}
-      # aws_region: us-east-1
+      # aws_region: us-east-1#
       ecr_repository: ephemeral-runner
