@@ -33,12 +33,11 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
         with:
           registry-type: public
-          mask-password: "false"
 
       - name: Build Docker image
         run: |
           IMAGE_TAG=${{ env.caller_repo }}-${{ github.sha }}
-          docker build -t ${{ env.ecr_repository }}:$IMAGE_TAG .
+          docker build -t ${{ env.ecr_repository }} .
 
       - name: Push Docker image to ECR
         run: |
