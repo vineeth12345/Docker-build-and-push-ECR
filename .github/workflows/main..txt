@@ -1,0 +1,19 @@
+
+
+# name: Main Workflow
+
+# on: [push, workflow_dispatch]
+
+# permissions:
+#   id-token: write
+#   contents: write
+#   actions: write
+#   packages: write
+
+# jobs:
+#   call-reusable-workflow:
+#     uses: vineeth12345/workflows/.github/workflows/build-and-push-ECR.yml@main
+#     with:
+#       caller_repo: ${{ github.repository }}
+#       aws_region: us-east-1
+#       ecr_repository: ephemeral-runner
