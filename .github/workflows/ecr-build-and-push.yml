@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1
-      caller_repo: ${{ github.repository }}
+      caller_repo: ${{ github.event.repository.name }}
       ecr_repository: ephemeral-runner
 
     steps:
