@@ -13,6 +13,9 @@
 # jobs:
 #   call-reusable-workflow:
 #     uses: vineeth12345/workflows/.github/workflows/build-and-push-ECR.yml@main
+      secrets:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
 #     with:
 #       caller_repo: ${{ github.repository }}
 #       aws_region: us-east-1

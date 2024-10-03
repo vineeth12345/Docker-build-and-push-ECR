@@ -9,6 +9,7 @@ jobs:
     env:
       AWS_REGION: us-east-1
       caller_repo: ${{ github.event.repository.name }}
+      #  ${{ github.repository}}  it will give the repository name as a output in a format of owner/repo-name
       ecr_repository: ephemeral-runner
 
     steps:
