@@ -37,7 +37,7 @@ jobs:
       - name: Build Docker image
         run: |
           IMAGE_TAG=${{ env.caller_repo }}-${{ github.sha }}
-          docker build -t ${{ env.ecr_repository }} .
+          docker build -t ${{ env.ecr_repository }}:$IMAGE_TAG .
 
       - name: Push Docker image to ECR
         run: |
