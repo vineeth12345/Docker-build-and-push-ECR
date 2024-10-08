@@ -39,28 +39,26 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v5
         with:
-          images: public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:${{env.IMAGE_TAG}}
-        #   labels: |
-        #     org.opencontainers.image.source=${{ github.repositoryUrl }}
+          images: ${{ env.ecr_repository }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: ${{ env.ecr_repository }}
+          labels: ${{steps.metadata.outputs.labels}}
+
+      - name: Push Docker image to ECR
+        run: |
+          IMAGE_TAG=${{ github.sha }}
+          docker tag ${{ env.ecr_repository }}:$IMAGE_TAG public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
+          docker push public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
+
+      - name: Print caller repository URL
+        run: |
+          echo "Caller Repository URL: ${{ env.IMAGE_TAG }}"
 
       #   - name: Build Docker image
       #     run: |
       #       IMAGE_TAG=${{ github.sha }}
       #       docker build -t ${{ env.ecr_repository }} .
-
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ${{ env.ecr_repository }}
-          labels: ${{steps.metadata.outputs.labels}}
-
-      #   - name: Push Docker image to ECR
-      #     run: |
-      #       IMAGE_TAG=${{ github.sha }}
-      #       docker tag ${{ env.ecr_repository }}:$IMAGE_TAG public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
-      #       docker push public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
-
-      - name: Print caller repository URL
-        run: |
-          echo "Caller Repository URL: ${{ env.IMAGE_TAG }}"
