@@ -51,15 +51,15 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          push: false
+          push: true
           tags: ${{ env.ecr_repository }}
           labels: ${{steps.metadata.outputs.labels}}
 
-      - name: Push Docker image to ECR
-        run: |
-          IMAGE_TAG=${{ github.sha }}
-          docker tag ${{ env.ecr_repository }}:$IMAGE_TAG public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
-          docker push public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
+      #   - name: Push Docker image to ECR
+      #     run: |
+      #       IMAGE_TAG=${{ github.sha }}
+      #       docker tag ${{ env.ecr_repository }}:$IMAGE_TAG public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
+      #       docker push public.ecr.aws/y1a8b4n6/${{ env.ecr_repository }}:$IMAGE_TAG
 
       - name: Print caller repository URL
         run: |
