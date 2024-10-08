@@ -46,7 +46,7 @@ jobs:
       - name: Build Docker image
         run: |
           IMAGE_TAG=${{ github.sha }}
-          docker build -t ${{ env.ecr_repository }} --label ${{ steps.metadata.outputs.labels }} .
+          docker build -t ${{ env.ecr_repository }} .
 
       - name: Push Docker image to ECR
         run: |
