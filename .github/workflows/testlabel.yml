@@ -25,5 +25,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t vineeth1234/ephemeral-runner:${{ github.sha }} --build-arg GIT_REPO_URL=${{ github.repositoryUrl }} .
+          docker build -t vineeth1234/ephemeral-runner:${{ github.sha }} --build-arg GIT_REPO_URL='https://github.com/${{ github.repository }}' .
           docker push vineeth1234/ephemeral-runner:${{ github.sha }}
