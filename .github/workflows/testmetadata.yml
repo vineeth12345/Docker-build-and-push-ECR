@@ -62,4 +62,4 @@ jobs:
 
       - name: Print caller repository URL
         run: |
-          echo "Caller Repository URL: ${{ github.repositoryUrl }}"
+          echo "Caller Repository URL: ${{ github.repository }}"
