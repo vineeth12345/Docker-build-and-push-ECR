@@ -34,4 +34,7 @@ RUN chmod +x /entrypoint.sh
 # Switch to non-root user
 USER runner
 
+ARG GIT_REPO_URL
+LABEL org.opencontainers.source=${GIT_REPO_URL}
+
 ENTRYPOINT ["/entrypoint.sh"]
